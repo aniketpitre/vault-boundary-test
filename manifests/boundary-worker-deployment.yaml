@@ -16,7 +16,14 @@ spec:
       containers:
       - name: boundary-worker
         image: hashicorp/boundary:0.15
-        args: ["worker"]
-        env:
-        - name: BOUNDARY_ADDR
-          value: http://boundary:9200
+        args:
+          - worker
+          - -config=/boundary/boundary-worker.hcl
+        volumeMounts:
+        - name: config
+          mountPath: /boundary/boundary-worker.hcl
+          subPath: boundary-worker.hcl
+      volumes:
+      - name: config
+        configMap:
+          name: boundary-worker-config

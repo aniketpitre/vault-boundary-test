@@ -16,7 +16,12 @@ spec:
       containers:
       - name: boundary
         image: hashicorp/boundary:0.15
-        args: ["server", "-config=/boundary/boundary.hcl"]
+        args:
+          - server
+          - -config=/boundary/boundary.hcl
+        env:
+        - name: SKIP_SETCAP
+          value: "true"
         ports:
         - containerPort: 9200
         - containerPort: 9201

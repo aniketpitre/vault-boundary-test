@@ -7,6 +7,13 @@ data:
   boundary.hcl: |
     disable_mlock = true
 
+    kms "aead" {
+      purpose   = "root"
+      aead_type = "aes-gcm"
+      key       = "01234567890123456789012345678901"
+      key_id    = "root-key"
+    }
+
     controller {
       name = "k8s-controller"
       database {
@@ -16,12 +23,4 @@ data:
 
     listener "tcp" {
       address = "0.0.0.0:9200"
-      purpose = "api"
-      tls_disable = true
-    }
-
-    listener "tcp" {
-      address = "0.0.0.0:9201"
-      purpose = "cluster"
-      tls_disable = true
-    }
+      pur
