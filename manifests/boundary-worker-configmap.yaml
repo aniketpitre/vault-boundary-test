@@ -8,7 +8,10 @@ data:
     disable_mlock = true
 
     worker {
-      controllers = ["http://boundary:9200"]
+      # REQUIRED (new syntax)
+      initial_upstreams = ["boundary:9200"]
+
+      # REQUIRED for activation-token-based workers
       auth_storage_path = "/boundary/auth"
     }
 
