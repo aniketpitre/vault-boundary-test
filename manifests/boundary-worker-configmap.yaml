@@ -9,10 +9,13 @@ data:
 
     worker {
       initial_upstreams = ["boundary:9201"]
+
+      tls_disable = true   # ✅ REQUIRED FOR v0.21 (THIS FIXES THE ERROR)
+
       auth_storage_path = "/boundary/auth"
 
       # ACTIVATION TOKEN (one-time use)
-      controller_generated_activation_token = "neslat_2KqKnRAuB76M4J2PGk47Tokn4XXwRMuTwrhemHkRLG7FqS594fFyuwbbCeaYQbugvZ9CzTpgwwbXddjhxoEDmi5xoM56L"
+      controller_generated_activation_token = "neslat_2KqRvXfxJAm5oJu43bnpJK1a1dwQ7sAHARUKiuHz8QKYDCE5AwkBm2bTS3LgWN4jutyJPDN6g7ckZaNBwWnyF7tAnXHd6"
     }
 
     listener "tcp" {
