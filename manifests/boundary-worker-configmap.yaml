@@ -15,7 +15,7 @@ data:
       auth_storage_path = "/boundary/auth"
 
       # ACTIVATION TOKEN (one-time use)
-      controller_generated_activation_token = "neslat_2KqRvXfxJAm5oJu43bnpJK1a1dwQ7sAHARUKiuHz8QKYDCE5AwkBm2bTS3LgWN4jutyJPDN6g7ckZaNBwWnyF7tAnXHd6"
+      controller_generated_activation_token = "neslat_2KrZsJtGUesQi9zA5njLJ1bWYWyyy49U8W1Es4LbMF8hGp1YpupNri6JdBfZvDHeeErcm2Eii2j5biR8YXaMoWjLnDgLA"
     }
 
     listener "tcp" {
