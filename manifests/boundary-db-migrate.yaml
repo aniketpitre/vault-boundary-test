@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: boundary-db-migrate
+  namespace: aniket-test
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: migrate
+        image: hashicorp/boundary:0.21.0
+        command:
+          - boundary
+          - database
+          - migrate
+          - -config=/boundary/boundary.hcl
+        volumeMounts:
+        - name: boundary-config
+          mountPath: /boundary/boundary.hcl
+          subPath: boundary.hcl
+      volumes:
+      - name: boundary-config
+        configMap:
+          name: boundary-config
