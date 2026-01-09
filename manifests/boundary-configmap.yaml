@@ -27,10 +27,9 @@ data:
       tls_disable = true
     }
 
+    # 🚨 THIS IS THE CRITICAL FIX
     listener "tcp" {
-      address     = "0.0.0.0:9201"
+      address     = "boundary:9201"   # ✅ NOT 0.0.0.0
       purpose     = "cluster"
       tls_disable = true
-
-      public_addr = "boundary:9201"   # ✅ THIS IS THE ONLY PLACE IT WORKS
     }

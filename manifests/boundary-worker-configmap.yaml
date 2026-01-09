@@ -9,40 +9,13 @@ data:
 
     worker {
       initial_upstreams = ["boundary:9201"]
-
-      tls_disable = true   # ✅ REQUIRED FOR v0.21 (THIS FIXES THE ERROR)
-
       auth_storage_path = "/boundary/auth"
 
       # ACTIVATION TOKEN (one-time use)
-      controller_generated_activation_token = "apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: boundary-worker-config
-  namespace: aniket-test
-data:
-  boundary-worker.hcl: |
-    disable_mlock = true
-
-    worker {
-      initial_upstreams = ["boundary:9201"]
-
-      tls_disable = true   # ✅ REQUIRED FOR v0.21 (THIS FIXES THE ERROR)
-
-      auth_storage_path = "/boundary/auth"
-
-      # ACTIVATION TOKEN (one-time use)
-      controller_generated_activation_token = "neslat_2KriTJdyPjqgyemQCCSu3rPtDdX96k9EX387Z9GudKhWGXBZKTVzrnqhNWuJvWkf3815P44e2iEmGpXcnbpBYahX9Z4r5"
+      controller_generated_activation_token = "neslat_2KqKnRAuB76M4J2PGk47Tokn4XXwRMuTwrhemHkRLG7FqS594fFyuwbbCeaYQbugvZ9CzTpgwwbXddjhxoEDmi5xoM56L"
     }
 
     listener "tcp" {
       address = "0.0.0.0:9202"
-      purpose = "proxy"
-    }
-"
-    }
-
-    listener "tcp" {
-      address = "boundary:9201"
       purpose = "proxy"
     }
