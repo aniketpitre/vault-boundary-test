@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: staging-keyclock.cladbe.com
+  - host: staging-keyclock.cladbe.com-1
     http:
       paths:
       - path: /
